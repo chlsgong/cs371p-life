@@ -10,10 +10,12 @@ using namespace std;
 Cell::Cell() {
 	current_state = false;
 	age = 0;
+	symbol = '-';
 }
-Cell::Cell(bool initial_state) {
+Cell::Cell(bool initial_state, char s) {
 	current_state = initial_state;
 	age = 0;
+	symbol = s;
 }
 void Cell::evolve(int index, const Life<Cell>& l) {
 	//cout << boolalpha << current_state << endl; 
@@ -41,11 +43,13 @@ void Cell::evolve(int index, const Life<Cell>& l) {
 
 ConwayCell::ConwayCell() {
 	current_state = false;
+	symbol = '.';
 }
-ConwayCell::ConwayCell(bool initial_state) {
+ConwayCell::ConwayCell(bool initial_state, char s) {
 	current_state = initial_state;
+	symbol = s;
 }
-void ConwayCell::evolve(int index, const Life<Cell>& l) {
+void ConwayCell::evolve(int index, const Life<ConwayCell>& l) {
 	// cout << boolalpha << current_state << endl; 
 	next_state = l.inspectNeighbors(current_state, index);
 	if(next_state)
@@ -58,12 +62,14 @@ void ConwayCell::evolve(int index, const Life<Cell>& l) {
 FredkinCell::FredkinCell() {
 	current_state = false;
 	age = 0;
+	symbol = '-';
 }
-FredkinCell::FredkinCell(bool initial_state) {
+FredkinCell::FredkinCell(bool initial_state, char s) {
 	current_state = initial_state;
 	age = 0;
+	symbol = s;
 }
-void FredkinCell::evolve(int index, const Life<Cell>& l) {
+void FredkinCell::evolve(int index, const Life<FredkinCell>& l) {
 	// cout << boolalpha << current_state << endl; 
 	next_state = l.inspectNeighbors(current_state, index);
 	if(next_state) {

@@ -5,39 +5,8 @@
 #include <vector>
 #include <iterator>
 
-class AbstractCell {
-	protected:
-		bool current_state; // true = alive, false = dead
-		bool next_state;
-		char symbol;
-
-	public:
-		virtual void evolve(int) = 0;
-};
-
-class Cell: public AbstractCell {
-	protected:
-		int age;
-
-	public:
-		Cell();
-		Cell(bool);
-		void evolve(int, const Life<Cell>&);
-};
-
-class ConwayCell: public Cell {
-	public:
-		ConwayCell();
-		ConwayCell(bool);
-		void evolve(int, const Life<Cell>&);
-};
-
-class FredkinCell: public Cell {
-	public:
-		FredkinCell();
-		FredkinCell(bool);
-		void evolve(int, const Life<Cell>&);
-};
+class ConwayCell;
+class FredkinCell;
 
 template<typename T>
 class L_Iterator {
@@ -81,19 +50,19 @@ class Life {
 			int size = r*c;
 			for(int i = 0; i < size; i++) {
 				if(g[i] == '.') { // dead conway cell
-					T cell = new ConwayCell(false);
+					T cell = new ConwayCell(false, '.');
 					grid.push_back(cell);
 				}
 				else if(g[i] == '-') { // dead fredkin cell
-					T cell = new FredkinCell(false);
+					T cell = new FredkinCell(false, '-');
 					grid.push_back(cell);
 				}
 				else if(g[i] == '*') { // live conway cell
-					T cell = new ConwayCell(true);
+					T cell = new ConwayCell(true, '*');
 					grid.push_back(cell);
 				}
 				else { // live fredkin cell
-					T cell = new FredkinCell(true);
+					T cell = new FredkinCell(true, '0');
 					grid.push_back(cell);
 				}
 			}
@@ -110,6 +79,10 @@ class Life {
 					grid[*b].evolve(*b, *this);
 					++b;
 				}
+			}
+			for(int i = 0; i < rows*columns; i++) {
+				char s = grid[i].symbol;
+				std::cout << s << std::endl;
 			}
 		}
 
@@ -128,6 +101,40 @@ class Life {
 			L_Iterator<int> e(end);
 			return e;
 		}
+};
+
+class AbstractCell {
+	protected:
+		bool current_state; // true = alive, false = dead
+		bool next_state;
+		char symbol;
+
+	public:
+		virtual void evolve(int) = 0;
+};
+
+class Cell: public AbstractCell {
+	protected:
+		int age;
+
+	public:
+		Cell();
+		Cell(bool, char);
+		void evolve(int, const Life<Cell>&);
+};
+
+class ConwayCell: public Cell {
+	public:
+		ConwayCell();
+		ConwayCell(bool, char);
+		void evolve(int, const Life<ConwayCell>&);
+};
+
+class FredkinCell: public Cell {
+	public:
+		FredkinCell();
+		FredkinCell(bool, char);
+		void evolve(int, const Life<FredkinCell>&);
 };
 
 void enact_life(std::istream& r);
