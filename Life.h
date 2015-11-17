@@ -4,14 +4,75 @@
 #include <iostream>
 #include <vector>
 #include <iterator>
+#include <type_traits>
 
-class ConwayCell;
-class FredkinCell;
+template<typename T> class Life;
+class Cell;
+
+class AbstractCell {
+	public:
+		bool current_state; // true = alive, false = dead
+		bool next_state;
+		char symbol;
+		int age;
+
+	public:
+		virtual ~AbstractCell() {}
+		virtual AbstractCell* clone() const = 0;
+		virtual void evolve(int, Life<Cell>&) = 0;
+		virtual bool canMutate() {
+			if(age == 2 && current_state)
+				return true;
+			return false;
+		}
+		virtual void changeState() {
+			current_state = next_state;
+		}
+		virtual int isAlive(int count) {
+			if(current_state)
+				return ++count;
+			return count;
+		}
+};
+
+class ConwayCell: public AbstractCell {
+	public:
+		ConwayCell();
+		ConwayCell(AbstractCell*);
+		ConwayCell(bool, char);
+		ConwayCell* clone() const;
+		void evolve(int, Life<ConwayCell>&);
+		void evolve(int, Life<Cell>&);
+};
+
+class FredkinCell: public AbstractCell {
+	public:
+		FredkinCell();
+		FredkinCell(AbstractCell*);
+		FredkinCell(bool, char);
+		FredkinCell* clone() const;
+		void evolve(int, Life<FredkinCell>&);
+		void evolve(int, Life<Cell>&);
+};
+
+class Cell {
+	AbstractCell* ac_ptr; // holds AbstractCell pointer
+
+	public:
+		~Cell();
+		Cell();
+		Cell(const AbstractCell*); // AbstractCell constructor
+		Cell(bool, char);
+		void operator = (const Cell&); // Cell assignment
+		void evolve(int, Life<Cell>&);
+		bool canMutate();
+		void changeState();
+		int isAlive(int);
+};
 
 template<typename T>
 class L_Iterator {
-	private:
-		T _v;
+	T _v;
 
 	public:
 		L_Iterator(const T& v) {
@@ -39,59 +100,157 @@ class L_Iterator {
 
 template<typename T>
 class Life {
-	private:
-		int rows;
-		int columns;
-		std::vector<T> grid;
+	int rows;
+	int columns;
+	int size;
+	std::vector<T> grid;
+
 	public:
-		Life(int r, int c, std::vector<char> g) {
-			rows = r;
-			columns = c;
-			int size = r*c;
-			for(int i = 0; i < size; i++) {
-				if(g[i] == '.') { // dead conway cell
-					T cell = new ConwayCell(false, '.');
-					grid.push_back(cell);
-				}
-				else if(g[i] == '-') { // dead fredkin cell
-					T cell = new FredkinCell(false, '-');
-					grid.push_back(cell);
-				}
-				else if(g[i] == '*') { // live conway cell
-					T cell = new ConwayCell(true, '*');
-					grid.push_back(cell);
-				}
-				else { // live fredkin cell
+		Life() {
+			rows = 10;
+			columns = 10;
+			size = rows * columns;
+			if(std::is_same<Cell, T>::value) // if Cell
+				for(int i = 0; i < size; i++) {
 					T cell = new FredkinCell(true, '0');
 					grid.push_back(cell);
 				}
+			else if(std::is_same<ConwayCell, T>::value)
+				for(int i = 0; i < size; i++) {
+					T cell = new ConwayCell(false, '-');
+					grid.push_back(cell);
+				}
+			else
+				for(int i = 0; i < size; i++) {
+					T cell = new FredkinCell(false, '-');
+					grid.push_back(cell);
+				}
+		}
+		Life(int r, int c, std::vector<char> g) { // custom constructor
+			rows = r;
+			columns = c;
+			size = r*c;
+			if(std::is_same<Cell, T>::value) { // if Cell
+				for(int i = 0; i < size; i++) {
+					if(g[i] == '.') { // dead conway cell
+						T cell = new ConwayCell(false, '.');
+						grid.push_back(cell);
+					}
+					else if(g[i] == '-') { // dead fredkin cell
+						T cell = new FredkinCell(false, '-');
+						grid.push_back(cell);
+					}
+					else if(g[i] == '*') { // live conway cell
+						T cell = new ConwayCell(true, '*');
+						grid.push_back(cell);
+					}
+					else { // live fredkin cell
+						T cell = new FredkinCell(true, '0');
+						grid.push_back(cell);
+					}
+				}
+			}
+			else {
+				for(int i = 0; i < size; i++) {
+					if(g[i] == '.' || g[i] == '-') {
+						T cell(false, g[i]);
+						grid.push_back(cell);
+					}
+					else {
+						T cell(true, g[i]);
+						grid.push_back(cell);
+					}
+				}
 			}
 		}
-
 		void runLife(int evolutions) {
-			// call cell.evolve(i)
 			for(int i = 0; i < evolutions; i++) {
 				L_Iterator<int> b = this->begin();
 				L_Iterator<int> e = this->end();
 				while(b != e) {
-					//std::cout << *b << std::endl;
-					//std::cout << *e << std::endl;
 					grid[*b].evolve(*b, *this);
 					++b;
 				}
+				
+				b = this->begin(); // reset b
+				if(std::is_same<Cell, T>::value) {
+					while(b != e) {
+						grid[*b].changeState();
+						if(grid[*b].canMutate()) { // mutate cells if needed
+							T temp = new ConwayCell(true, '*');
+							grid[*b].~T();
+							grid[*b] = temp;
+						}
+						++b;
+					}
+				}
+				else {
+					while(b != e) {
+						grid[*b].changeState();
+						++b;
+					}
+				}
 			}
-			for(int i = 0; i < rows*columns; i++) {
-				char s = grid[i].symbol;
-				std::cout << s << std::endl;
-			}
-		}
 
-		bool inspectNeighbors(char state, int position) {
+			// for(int i = 0; i < size; i++) {
+			// 	char s = grid[i].symbol;
+			// 	std::cout << s << std::endl;
+			// }
+		}
+		bool inspectNeighbors(int i, char symbol) {
 			// counts alive neighbor cells
 			// return true if alive, false if dead
-			return true;
+			int count = 0;
+			if(symbol == '.' || symbol == '*') { // conway cell
+				// top left corner
+				if(i-columns-1 > 0 && i%columns != 0)
+					count = grid[i-columns-1].isAlive(count);
+				// top edge
+				if(i-columns > 0)
+					count = grid[i-columns].isAlive(count);
+				// top right corner
+				if(i-columns+1 > 0 && (i+1)%columns != 0)
+					count = grid[i-columns+1].isAlive(count);
+				// left edge
+				if(i-1 > 0 && i%columns != 0)
+					count = grid[i-1].isAlive(count);
+				// right edge
+				if(i+1 < size && (i+1)%columns != 0)
+					count = grid[i+1].isAlive(count);
+				// bottom left corner
+				if(i+columns-1 < size && i%columns != 0)
+					count = grid[i+columns-1].isAlive(count);
+				// bottom edge
+				if(i+columns < size)
+					count = grid[i+columns].isAlive(count);
+				// bottom right corner
+				if(i+columns+1 < size && (i+1)%columns != 0)
+					count = grid[i+columns+1].isAlive(count);
+				if(count == 3)
+					return true;
+				return false;
+			}
+			else { // fredkin cell
+				// top edge
+				if(i-columns > 0)
+					count = grid[i-columns].isAlive(count);
+				// left edge
+				if(i-1 > 0 && i%columns != 0)
+					count = grid[i-1].isAlive(count);
+				// right edge
+				if(i+1 < size && (i+1)%columns != 0)
+					count = grid[i+1].isAlive(count);
+				// bottom edge
+				if(i+columns < size)
+					count = grid[i+columns].isAlive(count);
+				if(count % 2 != 0) // if odd then alive
+					return true;
+				return false;
+			}
 		}
-
+		void printLife() {
+			
+		}
 		L_Iterator<int> begin() {
 			L_Iterator<int> b(0);
 			return b;
@@ -101,40 +260,6 @@ class Life {
 			L_Iterator<int> e(end);
 			return e;
 		}
-};
-
-class AbstractCell {
-	protected:
-		bool current_state; // true = alive, false = dead
-		bool next_state;
-		char symbol;
-
-	public:
-		virtual void evolve(int) = 0;
-};
-
-class Cell: public AbstractCell {
-	protected:
-		int age;
-
-	public:
-		Cell();
-		Cell(bool, char);
-		void evolve(int, const Life<Cell>&);
-};
-
-class ConwayCell: public Cell {
-	public:
-		ConwayCell();
-		ConwayCell(bool, char);
-		void evolve(int, const Life<ConwayCell>&);
-};
-
-class FredkinCell: public Cell {
-	public:
-		FredkinCell();
-		FredkinCell(bool, char);
-		void evolve(int, const Life<FredkinCell>&);
 };
 
 void enact_life(std::istream& r);
