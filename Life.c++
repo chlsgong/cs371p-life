@@ -161,16 +161,37 @@ void enact_life(istream& r) {
 
 		if(cell_type == "Cell") {
 			Life<Cell> l(rows, columns, grid);
-			l.runLife(evolutions);
+			cout << "*** Life<Cell> " << rows << "x" << columns << " ***" << endl;
+			cout << endl;
+			for(int i = 0; i < evolutions; i++) {
+				l.runLife();
+				// generation, population
+				if(i % frequency == 0)
+					cout << l << endl;
+			}
 		}
 		else if(cell_type == "ConwayCell") {
 			Life<ConwayCell> l(rows, columns, grid);
-			l.runLife(evolutions);
+			cout << "*** Life<ConwayCell> " << rows << "x" << columns << " ***" << endl;
+			cout << endl;
+			for(int i = 0; i < evolutions; i++) {
+				l.runLife();
+				// generation, population
+				if(i % frequency == 0)
+					cout << l << endl;
+			}		
 		}
 		else if(cell_type == "FredkinCell") {
 			Life<FredkinCell> l(rows, columns, grid);
-			l.runLife(evolutions);
+			cout << "*** Life<FredkinCell> " << rows << "x" << columns << " ***" << endl;
+			cout << endl;
+			for(int i = 0; i < evolutions; i++) {
+				l.runLife();
+				// generation, population
+				if(i % frequency == 0)
+					cout << l << endl;
+			}
 		}
-
+		cout << endl;
 	}
 }

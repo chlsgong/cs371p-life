@@ -33,6 +33,10 @@ class AbstractCell {
 				return ++count;
 			return count;
 		}
+		std::&ostream operator << (std::ostream& os) {
+			os << symbol;
+			return os;
+		}
 };
 
 class ConwayCell: public AbstractCell {
@@ -59,6 +63,7 @@ class Cell {
 	AbstractCell* ac_ptr; // holds AbstractCell pointer
 
 	public:
+		char symbol;
 		~Cell();
 		Cell();
 		Cell(const AbstractCell*); // AbstractCell constructor
@@ -164,38 +169,31 @@ class Life {
 			}
 		}
 		void runLife(int evolutions) {
-			for(int i = 0; i < evolutions; i++) {
-				L_Iterator<int> b = this->begin();
-				L_Iterator<int> e = this->end();
+			L_Iterator<int> b = this->begin();
+			L_Iterator<int> e = this->end();
+			while(b != e) {
+				grid[*b].evolve(*b, *this);
+				++b;
+			}
+			
+			b = this->begin(); // reset b
+			if(std::is_same<Cell, T>::value) {
 				while(b != e) {
-					grid[*b].evolve(*b, *this);
+					grid[*b].changeState();
+					if(grid[*b].canMutate()) { // mutate cells if needed
+						T temp = new ConwayCell(true, '*');
+						grid[*b].~T();
+						grid[*b] = temp;
+					}
 					++b;
 				}
-				
-				b = this->begin(); // reset b
-				if(std::is_same<Cell, T>::value) {
-					while(b != e) {
-						grid[*b].changeState();
-						if(grid[*b].canMutate()) { // mutate cells if needed
-							T temp = new ConwayCell(true, '*');
-							grid[*b].~T();
-							grid[*b] = temp;
-						}
-						++b;
-					}
-				}
-				else {
-					while(b != e) {
-						grid[*b].changeState();
-						++b;
-					}
-				}
 			}
-
-			// for(int i = 0; i < size; i++) {
-			// 	char s = grid[i].symbol;
-			// 	std::cout << s << std::endl;
-			// }
+			else {
+				while(b != e) {
+					grid[*b].changeState();
+					++b;
+				}
+			};
 		}
 		bool inspectNeighbors(int i, char symbol) {
 			// counts alive neighbor cells
@@ -248,9 +246,24 @@ class Life {
 				return false;
 			}
 		}
-		void printLife() {
-			
+		friend std::ostream& operator << (std::ostream& os, const Life<T>& l) {
+			for(int i = 0; i < l.rows; i++) {
+				for(int j = 0; j < l.columns; j++) {
+					os << l.grid[i*l.columns+j];
+				}
+				os << "\n";
+			}
+			return os;
 		}
+		// void printLife() {
+		// 	for(int i = 0; i < rows; i++) {
+		// 		for(int j = 0; j < columns; j++) {
+		// 			char s = grid[i*columns+j].symbol;
+		// 			std::cout << s;
+		// 		}
+		// 		std::cout << std::endl;
+		// 	}
+		// }
 		L_Iterator<int> begin() {
 			L_Iterator<int> b(0);
 			return b;
