@@ -41,6 +41,7 @@ class AbstractCell {
 				return ++count;
 			return count;
 		}
+		friend std::ostream& operator << (std::ostream&, const Cell&);
 };
 
 class ConwayCell: public AbstractCell {
@@ -69,7 +70,6 @@ class Cell {
 	AbstractCell* ac_ptr; // holds AbstractCell pointer
 
 	public:
-		~Cell();
 		Cell();
 		Cell(const AbstractCell*); // AbstractCell constructor
 		Cell(bool, char);
@@ -114,7 +114,7 @@ class Life {
 	int rows;
 	int columns;
 	int size;
-	int population = 0;
+	int population;
 	std::vector<T> grid;
 
 	public:
@@ -148,6 +148,7 @@ class Life {
 			rows = r;
 			columns = c;
 			size = r*c;
+			population = 0;
 			if(std::is_same<Cell, T>::value) { // if Cell
 				for(int i = 0; i < size; i++) {
 					if(g[i] == '.') { // dead conway cell
@@ -285,11 +286,11 @@ class Life {
 			}
 		}
 		friend std::ostream& operator << (std::ostream& os, const Life<T>& l) {
-			os << "Population = " << l.population << ".\n";
+			os << "Population = " << l.population << "." << std::endl;
 			for(int i = 0; i < l.rows; i++) {
 				for(int j = 0; j < l.columns; j++)
 					os << l.at(i*l.columns+j);
-				os << "\n";
+				os << std::endl;
 			}
 			return os;
 		}
@@ -307,6 +308,6 @@ class Life {
 		}
 };
 
-void enact_life(std::istream& r);
+void enact_life(std::istream& r, std::ostream& w);
 
 #endif // DARWIN_H

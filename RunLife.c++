@@ -8,7 +8,7 @@
 
 int main () {
     using namespace std;
-    enact_life(cin);
+    enact_life(cin, cout);
     return 0;}
 
 // g++ -pedantic -std=c++11 -Wall Life.c++ RunLife.c++ -o RunLife

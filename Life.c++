@@ -9,9 +9,6 @@
 using namespace std;
 
 // class Cell
-Cell::~Cell() {
-	delete ac_ptr;
-}
 Cell::Cell() {
 	FredkinCell fc;
 	ac_ptr = fc.clone();
@@ -43,7 +40,7 @@ int Cell::isAlive(int count) {
 	return ac_ptr->isAlive(count);
 }
 ostream& operator << (ostream& os, const Cell& c) {
-	os << c.ac_ptr;
+	os << c.ac_ptr->symbol;
 	return os;
 }
 
@@ -61,7 +58,6 @@ ConwayCell* ConwayCell::clone() const {
 	return new ConwayCell(*this);
 }
 void ConwayCell::evolve(int index, Life<ConwayCell>& l) {
-	// cout << boolalpha << current_state << endl; 
 	next_state = l.inspectNeighbors(index, symbol);
 	if(next_state)
 		symbol = '*';
@@ -96,10 +92,10 @@ FredkinCell* FredkinCell::clone() const {
 	return new FredkinCell(*this);
 }
 void FredkinCell::evolve(int index, Life<FredkinCell>& l) {
-	// cout << boolalpha << current_state << endl; 
 	next_state = l.inspectNeighbors(index, symbol);
 	if(next_state) {
-		++age;
+		if(current_state == next_state)
+			++age;
 		if(age >= 10)
 			symbol = '+';
 		else {
@@ -113,7 +109,8 @@ void FredkinCell::evolve(int index, Life<FredkinCell>& l) {
 void FredkinCell::evolve(int index, Life<Cell>& l) {
 	next_state = l.inspectNeighbors(index, symbol);
 	if(next_state) {
-		++age;
+		if(current_state == next_state)
+			++age;
 		if(age >= 10)
 			symbol = '+';
 		else {
@@ -130,7 +127,7 @@ ostream& operator << (ostream& os, const FredkinCell& fc) {
 }
 
 
-void enact_life(istream& r) {
+void enact_life(istream& r, ostream& w) {
 	string s;
 	string cell_type;
 	int rows;
@@ -140,8 +137,12 @@ void enact_life(istream& r) {
 	char cell;
 	vector<char> grid;
 
+	int flag = 0;
 	istringstream sin;
 	while(getline(r, cell_type)) { // type of cell
+		if(flag == 1)
+			w << endl;
+		flag = 1;
 		getline(r, s);
 		sin.str(s);
 		sin >> rows; // number of rows
@@ -172,47 +173,42 @@ void enact_life(istream& r) {
 			}
 		}
 
-		// for(int i = 0; i < rows; i++) {
-		// 	for(int j = 0; j < columns; j++) {
-		// 		cout << grid[i*columns + j];
-		// 	}
-		// 	cout << endl;
-		// }
-
 		getline(r, s); // blank line
-
-		// ... code
 
 		if(cell_type == "Cell") {
 			Life<Cell> l(rows, columns, grid);
-			cout << "*** Life<Cell> " << rows << "x" << columns << " ***" << endl;
-			cout << endl;
+			w << "*** Life<Cell> " << rows << "x" << columns << " ***" << endl;
 			for(int i = 0; i <= evolutions; i++) {
-				if(i % frequency == 0)
-					cout << "Generation = " << i << ", " << l << endl;
+				if(i % frequency == 0) {
+					w << endl;
+					w << "Generation = " << i << ", " << l;
+				}
 				l.runLife();
 			}
 		}
 		else if(cell_type == "ConwayCell") {
 			Life<ConwayCell> l(rows, columns, grid);
-			cout << "*** Life<ConwayCell> " << rows << "x" << columns << " ***" << endl;
-			cout << endl;
+			w << "*** Life<ConwayCell> " << rows << "x" << columns << " ***" << endl;
 			for(int i = 0; i <= evolutions; i++) {
-				if(i % frequency == 0)
-					cout << "Generation = " << i << ", " << l << endl;
+				if(i % frequency == 0) {
+					w << endl;
+					w << "Generation = " << i << ", " << l;
+				}
 				l.runLife();
 			}		
 		}
 		else if(cell_type == "FredkinCell") {
 			Life<FredkinCell> l(rows, columns, grid);
-			cout << "*** Life<FredkinCell> " << rows << "x" << columns << " ***" << endl;
-			cout << endl;
+			w << "*** Life<FredkinCell> " << rows << "x" << columns << " ***" << endl;
 			for(int i = 0; i <= evolutions; i++) {
-				if(i % frequency == 0)
-					cout << "Generation = " << i << ", " << l << endl;
+				if(i % frequency == 0) {
+					w << endl;
+					w << "Generation = " << i << ", " << l;
+				}
 				l.runLife();
 			}
 		}
-		cout << endl;
+
+		grid.clear(); // reset vector
 	}
 }
