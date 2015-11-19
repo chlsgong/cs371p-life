@@ -47,11 +47,13 @@ ostream& operator << (ostream& os, const Cell& c) {
 // class ConwayCell
 ConwayCell::ConwayCell() {
 	current_state = false;
+	next_state = false;
 	symbol = '.';
 }
 ConwayCell::ConwayCell(AbstractCell*) {}
 ConwayCell::ConwayCell(bool initial_state, char s) {
 	current_state = initial_state;
+	next_state = false;
 	symbol = s;
 }
 ConwayCell* ConwayCell::clone() const {
@@ -79,12 +81,14 @@ ostream& operator << (ostream& os, const ConwayCell& cc) {
 // class FredkinCell
 FredkinCell::FredkinCell() {
 	current_state = false;
+	next_state = false;
 	age = 0;
 	symbol = '-';
 }
 FredkinCell::FredkinCell(AbstractCell*) {}
 FredkinCell::FredkinCell(bool initial_state, char s) {
 	current_state = initial_state;
+	next_state = false;
 	age = 0;
 	symbol = s;
 }

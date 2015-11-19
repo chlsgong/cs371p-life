@@ -1,0 +1,72 @@
+==3668== Memcheck, a memory error detector
+==3668== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==3668== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==3668== Command: ./TestLife
+==3668== 
+Running main() from gtest_main.cc
+[==========] Running 7 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 4 tests from AbstractCellFixture
+[ RUN      ] AbstractCellFixture.abstract_cell_destructor
+TestLife.c++:17: Failure
+Value of: nullptr
+  Actual: 8-byte object <00-00 00-00 00-00 00-00>
+Expected: c
+Which is: 0x5c484b0
+[  FAILED  ] AbstractCellFixture.abstract_cell_destructor (48 ms)
+[ RUN      ] AbstractCellFixture.abstract_cell_canMutate
+==3668== Conditional jump or move depends on uninitialised value(s)
+==3668==    at 0x407F08: AbstractCell::canMutate() (in /v/filer4b/v38q001/hcgong/Documents/OOP-workspace/cs371p-life/TestLife)
+==3668==    by 0x412D22: AbstractCellFixture_abstract_cell_canMutate_Test::TestBody() (in /v/filer4b/v38q001/hcgong/Documents/OOP-workspace/cs371p-life/TestLife)
+==3668==    by 0x439242: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/hcgong/Documents/OOP-workspace/cs371p-life/TestLife)
+==3668==    by 0x42C2FC: testing::Test::Run() (in /v/filer4b/v38q001/hcgong/Documents/OOP-workspace/cs371p-life/TestLife)
+==3668==    by 0x42C393: testing::TestInfo::Run() (in /v/filer4b/v38q001/hcgong/Documents/OOP-workspace/cs371p-life/TestLife)
+==3668==    by 0x42C494: testing::TestCase::Run() (in /v/filer4b/v38q001/hcgong/Documents/OOP-workspace/cs371p-life/TestLife)
+==3668==    by 0x42C70C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/hcgong/Documents/OOP-workspace/cs371p-life/TestLife)
+==3668==    by 0x42C9ED: testing::UnitTest::Run() (in /v/filer4b/v38q001/hcgong/Documents/OOP-workspace/cs371p-life/TestLife)
+==3668==    by 0x40563F: main (in /v/filer4b/v38q001/hcgong/Documents/OOP-workspace/cs371p-life/TestLife)
+==3668== 
+[       OK ] AbstractCellFixture.abstract_cell_canMutate (2 ms)
+[ RUN      ] AbstractCellFixture.abstract_cell_changeState
+[       OK ] AbstractCellFixture.abstract_cell_changeState (2 ms)
+[ RUN      ] AbstractCellFixture.abstract_cell_isAlive
+[       OK ] AbstractCellFixture.abstract_cell_isAlive (2 ms)
+[----------] 4 tests from AbstractCellFixture (64 ms total)
+
+[----------] 3 tests from ConwayCellFixture
+[ RUN      ] ConwayCellFixture.conway_cell_default_constructor
+[       OK ] ConwayCellFixture.conway_cell_default_constructor (6 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_custom_constructor
+[       OK ] ConwayCellFixture.conway_cell_custom_constructor (4 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_clone
+TestLife.c++:60: Failure
+Value of: "."
+Expected: o.str()
+Which is: "0x5c4ea00"
+[  FAILED  ] ConwayCellFixture.conway_cell_clone (11 ms)
+[----------] 3 tests from ConwayCellFixture (21 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 2 test cases ran. (114 ms total)
+[  PASSED  ] 5 tests.
+[  FAILED  ] 2 tests, listed below:
+[  FAILED  ] AbstractCellFixture.abstract_cell_destructor
+[  FAILED  ] ConwayCellFixture.conway_cell_clone
+
+ 2 FAILED TESTS
+==3668== 
+==3668== HEAP SUMMARY:
+==3668==     in use at exit: 80 bytes in 5 blocks
+==3668==   total heap usage: 435 allocs, 430 frees, 77,669 bytes allocated
+==3668== 
+==3668== LEAK SUMMARY:
+==3668==    definitely lost: 80 bytes in 5 blocks
+==3668==    indirectly lost: 0 bytes in 0 blocks
+==3668==      possibly lost: 0 bytes in 0 blocks
+==3668==    still reachable: 0 bytes in 0 blocks
+==3668==         suppressed: 0 bytes in 0 blocks
+==3668== Rerun with --leak-check=full to see details of leaked memory
+==3668== 
+==3668== For counts of detected and suppressed errors, rerun with: -v
+==3668== Use --track-origins=yes to see where uninitialised values come from
+==3668== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
