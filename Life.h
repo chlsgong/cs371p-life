@@ -11,10 +11,10 @@ class Cell;
 
 class AbstractCell {
 	protected:
-		bool current_state; // true = alive, false = dead
-		bool next_state;
-		char symbol;
-		int age;
+		bool current_state = false; // true = alive, false = dead
+		bool next_state = false;
+		char symbol = ' ';
+		int age = 0;
 
 	public:
 		virtual ~AbstractCell() {}

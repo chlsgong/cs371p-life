@@ -1,0 +1,132 @@
+\hypertarget{classAbstractCell}{\section{Abstract\-Cell Class Reference}
+\label{classAbstractCell}\index{Abstract\-Cell@{Abstract\-Cell}}
+}
+
+
+{\ttfamily \#include $<$Life.\-h$>$}
+
+Inheritance diagram for Abstract\-Cell\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAbstractCell}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classAbstractCell_a4576179f57220c4342edd9b01563df63}{$\sim$\-Abstract\-Cell} ()
+\item 
+virtual \hyperlink{classAbstractCell}{Abstract\-Cell} $\ast$ \hyperlink{classAbstractCell_a1a95a7ea92b3503e2f042170b6320354}{clone} () const =0
+\item 
+virtual void \hyperlink{classAbstractCell_a3400569dbc73b019698bead4aca5b186}{evolve} (int, \hyperlink{classLife}{Life}$<$ \hyperlink{classCell}{Cell} $>$ \&)=0
+\item 
+virtual bool \hyperlink{classAbstractCell_ad19a847847061bcbe642932ba34713b3}{can\-Mutate} ()
+\item 
+virtual int \hyperlink{classAbstractCell_a86553456ecaaeb0d7e94b92e123540b6}{change\-State} ()
+\item 
+virtual int \hyperlink{classAbstractCell_ac4bba10e2bc5da7fe5c601d04c75821f}{is\-Alive} (int count)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classAbstractCell_a738a87fd7a98a0bbeb723d0690b07e97}{current\-\_\-state} = false
+\item 
+bool \hyperlink{classAbstractCell_a196b0194fb5cd8701b0aae28d12a0586}{next\-\_\-state} = false
+\item 
+char \hyperlink{classAbstractCell_ad763295e814970b07d31d98b560a4b19}{symbol} = ' '
+\item 
+int \hyperlink{classAbstractCell_a99e95bd6e878d85cb33a9fe90c4b7d25}{age} = 0
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classAbstractCell_abe6e58e7a719ee8f4a34181ccca158a2}{operator$<$$<$} (std\-::ostream \&, const \hyperlink{classCell}{Cell} \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classAbstractCell_a4576179f57220c4342edd9b01563df63}{\index{Abstract\-Cell@{Abstract\-Cell}!$\sim$\-Abstract\-Cell@{$\sim$\-Abstract\-Cell}}
+\index{$\sim$\-Abstract\-Cell@{$\sim$\-Abstract\-Cell}!AbstractCell@{Abstract\-Cell}}
+\subsubsection[{$\sim$\-Abstract\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}virtual Abstract\-Cell\-::$\sim$\-Abstract\-Cell (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classAbstractCell_a4576179f57220c4342edd9b01563df63}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classAbstractCell_ad19a847847061bcbe642932ba34713b3}{\index{Abstract\-Cell@{Abstract\-Cell}!can\-Mutate@{can\-Mutate}}
+\index{can\-Mutate@{can\-Mutate}!AbstractCell@{Abstract\-Cell}}
+\subsubsection[{can\-Mutate}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Abstract\-Cell\-::can\-Mutate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classAbstractCell_ad19a847847061bcbe642932ba34713b3}
+\hypertarget{classAbstractCell_a86553456ecaaeb0d7e94b92e123540b6}{\index{Abstract\-Cell@{Abstract\-Cell}!change\-State@{change\-State}}
+\index{change\-State@{change\-State}!AbstractCell@{Abstract\-Cell}}
+\subsubsection[{change\-State}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Abstract\-Cell\-::change\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classAbstractCell_a86553456ecaaeb0d7e94b92e123540b6}
+\hypertarget{classAbstractCell_a1a95a7ea92b3503e2f042170b6320354}{\index{Abstract\-Cell@{Abstract\-Cell}!clone@{clone}}
+\index{clone@{clone}!AbstractCell@{Abstract\-Cell}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Abstract\-Cell}$\ast$ Abstract\-Cell\-::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classAbstractCell_a1a95a7ea92b3503e2f042170b6320354}
+
+
+Implemented in \hyperlink{classFredkinCell_a05d7cd1308b23d514e207317fdf06235}{Fredkin\-Cell}, and \hyperlink{classConwayCell_a0fac73dc33d36053d1400430f1c980ce}{Conway\-Cell}.
+
+\hypertarget{classAbstractCell_a3400569dbc73b019698bead4aca5b186}{\index{Abstract\-Cell@{Abstract\-Cell}!evolve@{evolve}}
+\index{evolve@{evolve}!AbstractCell@{Abstract\-Cell}}
+\subsubsection[{evolve}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Abstract\-Cell\-::evolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf Life}$<$ {\bf Cell} $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classAbstractCell_a3400569dbc73b019698bead4aca5b186}
+
+
+Implemented in \hyperlink{classFredkinCell_a662b6ad6a17cda14b4563a17c6ae4eed}{Fredkin\-Cell}, and \hyperlink{classConwayCell_ad7204969de71ae212c67b5eafcd333f0}{Conway\-Cell}.
+
+\hypertarget{classAbstractCell_ac4bba10e2bc5da7fe5c601d04c75821f}{\index{Abstract\-Cell@{Abstract\-Cell}!is\-Alive@{is\-Alive}}
+\index{is\-Alive@{is\-Alive}!AbstractCell@{Abstract\-Cell}}
+\subsubsection[{is\-Alive}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Abstract\-Cell\-::is\-Alive (
+\begin{DoxyParamCaption}
+\item[{int}]{count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classAbstractCell_ac4bba10e2bc5da7fe5c601d04c75821f}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classAbstractCell_abe6e58e7a719ee8f4a34181ccca158a2}{\index{Abstract\-Cell@{Abstract\-Cell}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!AbstractCell@{Abstract\-Cell}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{, }
+\item[{const {\bf Cell} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classAbstractCell_abe6e58e7a719ee8f4a34181ccca158a2}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classAbstractCell_a99e95bd6e878d85cb33a9fe90c4b7d25}{\index{Abstract\-Cell@{Abstract\-Cell}!age@{age}}
+\index{age@{age}!AbstractCell@{Abstract\-Cell}}
+\subsubsection[{age}]{\setlength{\rightskip}{0pt plus 5cm}int Abstract\-Cell\-::age = 0\hspace{0.3cm}{\ttfamily [protected]}}}\label{classAbstractCell_a99e95bd6e878d85cb33a9fe90c4b7d25}
+\hypertarget{classAbstractCell_a738a87fd7a98a0bbeb723d0690b07e97}{\index{Abstract\-Cell@{Abstract\-Cell}!current\-\_\-state@{current\-\_\-state}}
+\index{current\-\_\-state@{current\-\_\-state}!AbstractCell@{Abstract\-Cell}}
+\subsubsection[{current\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}bool Abstract\-Cell\-::current\-\_\-state = false\hspace{0.3cm}{\ttfamily [protected]}}}\label{classAbstractCell_a738a87fd7a98a0bbeb723d0690b07e97}
+\hypertarget{classAbstractCell_a196b0194fb5cd8701b0aae28d12a0586}{\index{Abstract\-Cell@{Abstract\-Cell}!next\-\_\-state@{next\-\_\-state}}
+\index{next\-\_\-state@{next\-\_\-state}!AbstractCell@{Abstract\-Cell}}
+\subsubsection[{next\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}bool Abstract\-Cell\-::next\-\_\-state = false\hspace{0.3cm}{\ttfamily [protected]}}}\label{classAbstractCell_a196b0194fb5cd8701b0aae28d12a0586}
+\hypertarget{classAbstractCell_ad763295e814970b07d31d98b560a4b19}{\index{Abstract\-Cell@{Abstract\-Cell}!symbol@{symbol}}
+\index{symbol@{symbol}!AbstractCell@{Abstract\-Cell}}
+\subsubsection[{symbol}]{\setlength{\rightskip}{0pt plus 5cm}char Abstract\-Cell\-::symbol = ' '\hspace{0.3cm}{\ttfamily [protected]}}}\label{classAbstractCell_ad763295e814970b07d31d98b560a4b19}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Life_8h}{Life.\-h}\end{DoxyCompactItemize}

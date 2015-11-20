@@ -1,0 +1,134 @@
+\hypertarget{classLife}{\section{Life$<$ T $>$ Class Template Reference}
+\label{classLife}\index{Life$<$ T $>$@{Life$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$Life.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLife_af49136b65408d89747b5b8157b899aa9}{Life} ()
+\item 
+\hyperlink{classLife_a38a1876a2663d931054ceb8ec381c951}{Life} (int r, int c, std\-::vector$<$ char $>$ g)
+\item 
+void \hyperlink{classLife_a7dbf17957d95e5de7eae8b2238926531}{run\-Life} ()
+\item 
+bool \hyperlink{classLife_a4e4342f7c4a22b0bf34f870f5ac10b44}{inspect\-Neighbors} (int i, char symbol)
+\item 
+\hyperlink{classL__Iterator}{L\-\_\-\-Iterator}$<$ int $>$ \hyperlink{classLife_a6054856906eebe84367ae17369bc534c}{begin} ()
+\item 
+\hyperlink{classL__Iterator}{L\-\_\-\-Iterator}$<$ int $>$ \hyperlink{classLife_a13070724cceb1a2d7ab73d2738386c78}{end} ()
+\item 
+T \hyperlink{classLife_aef6990159e25fb486ea770cc8b47a891}{at} (int index) const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classLife_ac8b1792a10629f1bfd890ac3acb37510}{rows}
+\item 
+int \hyperlink{classLife_a65d1a622f32424e9c0a10c7cc051ea58}{columns}
+\item 
+int \hyperlink{classLife_a53df763a5b9eae675fd8e4d3045bf1ad}{size}
+\item 
+int \hyperlink{classLife_ad0c82e4ef83bc0b56faf58f28e63e1e2}{population}
+\item 
+std\-::vector$<$ T $>$ \hyperlink{classLife_a7ecaf21e43796adda4c080cbb33b5198}{grid}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classLife_a788d44c7f0bbc3af5090d3e7ccb94c4d}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classLife}{Life}$<$ T $>$ \&l)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classLife_af49136b65408d89747b5b8157b899aa9}{\index{Life@{Life}!Life@{Life}}
+\index{Life@{Life}!Life@{Life}}
+\subsubsection[{Life}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Life}$<$ T $>$\-::{\bf Life} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLife_af49136b65408d89747b5b8157b899aa9}
+\hypertarget{classLife_a38a1876a2663d931054ceb8ec381c951}{\index{Life@{Life}!Life@{Life}}
+\index{Life@{Life}!Life@{Life}}
+\subsubsection[{Life}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Life}$<$ T $>$\-::{\bf Life} (
+\begin{DoxyParamCaption}
+\item[{int}]{r, }
+\item[{int}]{c, }
+\item[{std\-::vector$<$ char $>$}]{g}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLife_a38a1876a2663d931054ceb8ec381c951}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classLife_aef6990159e25fb486ea770cc8b47a891}{\index{Life@{Life}!at@{at}}
+\index{at@{at}!Life@{Life}}
+\subsubsection[{at}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf Life}$<$ T $>$\-::at (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLife_aef6990159e25fb486ea770cc8b47a891}
+\hypertarget{classLife_a6054856906eebe84367ae17369bc534c}{\index{Life@{Life}!begin@{begin}}
+\index{begin@{begin}!Life@{Life}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf L\-\_\-\-Iterator}$<$int$>$ {\bf Life}$<$ T $>$\-::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLife_a6054856906eebe84367ae17369bc534c}
+\hypertarget{classLife_a13070724cceb1a2d7ab73d2738386c78}{\index{Life@{Life}!end@{end}}
+\index{end@{end}!Life@{Life}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf L\-\_\-\-Iterator}$<$int$>$ {\bf Life}$<$ T $>$\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLife_a13070724cceb1a2d7ab73d2738386c78}
+\hypertarget{classLife_a4e4342f7c4a22b0bf34f870f5ac10b44}{\index{Life@{Life}!inspect\-Neighbors@{inspect\-Neighbors}}
+\index{inspect\-Neighbors@{inspect\-Neighbors}!Life@{Life}}
+\subsubsection[{inspect\-Neighbors}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool {\bf Life}$<$ T $>$\-::inspect\-Neighbors (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{char}]{symbol}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLife_a4e4342f7c4a22b0bf34f870f5ac10b44}
+\hypertarget{classLife_a7dbf17957d95e5de7eae8b2238926531}{\index{Life@{Life}!run\-Life@{run\-Life}}
+\index{run\-Life@{run\-Life}!Life@{Life}}
+\subsubsection[{run\-Life}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf Life}$<$ T $>$\-::run\-Life (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLife_a7dbf17957d95e5de7eae8b2238926531}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classLife_a788d44c7f0bbc3af5090d3e7ccb94c4d}{\index{Life@{Life}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Life@{Life}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf Life}$<$ T $>$ \&}]{l}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classLife_a788d44c7f0bbc3af5090d3e7ccb94c4d}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classLife_a65d1a622f32424e9c0a10c7cc051ea58}{\index{Life@{Life}!columns@{columns}}
+\index{columns@{columns}!Life@{Life}}
+\subsubsection[{columns}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ int {\bf Life}$<$ T $>$\-::columns\hspace{0.3cm}{\ttfamily [private]}}}\label{classLife_a65d1a622f32424e9c0a10c7cc051ea58}
+\hypertarget{classLife_a7ecaf21e43796adda4c080cbb33b5198}{\index{Life@{Life}!grid@{grid}}
+\index{grid@{grid}!Life@{Life}}
+\subsubsection[{grid}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ std\-::vector$<$T$>$ {\bf Life}$<$ T $>$\-::grid\hspace{0.3cm}{\ttfamily [private]}}}\label{classLife_a7ecaf21e43796adda4c080cbb33b5198}
+\hypertarget{classLife_ad0c82e4ef83bc0b56faf58f28e63e1e2}{\index{Life@{Life}!population@{population}}
+\index{population@{population}!Life@{Life}}
+\subsubsection[{population}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ int {\bf Life}$<$ T $>$\-::population\hspace{0.3cm}{\ttfamily [private]}}}\label{classLife_ad0c82e4ef83bc0b56faf58f28e63e1e2}
+\hypertarget{classLife_ac8b1792a10629f1bfd890ac3acb37510}{\index{Life@{Life}!rows@{rows}}
+\index{rows@{rows}!Life@{Life}}
+\subsubsection[{rows}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ int {\bf Life}$<$ T $>$\-::rows\hspace{0.3cm}{\ttfamily [private]}}}\label{classLife_ac8b1792a10629f1bfd890ac3acb37510}
+\hypertarget{classLife_a53df763a5b9eae675fd8e4d3045bf1ad}{\index{Life@{Life}!size@{size}}
+\index{size@{size}!Life@{Life}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ int {\bf Life}$<$ T $>$\-::size\hspace{0.3cm}{\ttfamily [private]}}}\label{classLife_a53df763a5b9eae675fd8e4d3045bf1ad}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Life_8h}{Life.\-h}\end{DoxyCompactItemize}
