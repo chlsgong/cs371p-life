@@ -1,0 +1,110 @@
+\hypertarget{classConwayCell}{\section{Conway\-Cell Class Reference}
+\label{classConwayCell}\index{Conway\-Cell@{Conway\-Cell}}
+}
+
+
+{\ttfamily \#include $<$Life.\-h$>$}
+
+Inheritance diagram for Conway\-Cell\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classConwayCell}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classConwayCell_aeff597ba7adcb28d4c386d075eddb196}{Conway\-Cell} ()
+\item 
+\hyperlink{classConwayCell_a2a95bc5f44490fcc91e40b6a5c98ab86}{Conway\-Cell} (\hyperlink{classAbstractCell}{Abstract\-Cell} $\ast$)
+\item 
+\hyperlink{classConwayCell_a5a3c45dac7c4de6119fb9d0dfdfab710}{Conway\-Cell} (bool, char)
+\item 
+\hyperlink{classConwayCell}{Conway\-Cell} $\ast$ \hyperlink{classConwayCell_a0fac73dc33d36053d1400430f1c980ce}{clone} () const 
+\item 
+void \hyperlink{classConwayCell_af5de668c6c40874a915da6335e030aa6}{evolve} (int, \hyperlink{classLife}{Life}$<$ \hyperlink{classConwayCell}{Conway\-Cell} $>$ \&)
+\item 
+void \hyperlink{classConwayCell_ad7204969de71ae212c67b5eafcd333f0}{evolve} (int, \hyperlink{classLife}{Life}$<$ \hyperlink{classCell}{Cell} $>$ \&)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classConwayCell_a30841fd52a1b9f1980a5e3345d7c6b9f}{operator$<$$<$} (std\-::ostream \&, const \hyperlink{classConwayCell}{Conway\-Cell} \&)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classConwayCell_aeff597ba7adcb28d4c386d075eddb196}{\index{Conway\-Cell@{Conway\-Cell}!Conway\-Cell@{Conway\-Cell}}
+\index{Conway\-Cell@{Conway\-Cell}!ConwayCell@{Conway\-Cell}}
+\subsubsection[{Conway\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}Conway\-Cell\-::\-Conway\-Cell (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classConwayCell_aeff597ba7adcb28d4c386d075eddb196}
+\hypertarget{classConwayCell_a2a95bc5f44490fcc91e40b6a5c98ab86}{\index{Conway\-Cell@{Conway\-Cell}!Conway\-Cell@{Conway\-Cell}}
+\index{Conway\-Cell@{Conway\-Cell}!ConwayCell@{Conway\-Cell}}
+\subsubsection[{Conway\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}Conway\-Cell\-::\-Conway\-Cell (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\-Cell} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{classConwayCell_a2a95bc5f44490fcc91e40b6a5c98ab86}
+\hypertarget{classConwayCell_a5a3c45dac7c4de6119fb9d0dfdfab710}{\index{Conway\-Cell@{Conway\-Cell}!Conway\-Cell@{Conway\-Cell}}
+\index{Conway\-Cell@{Conway\-Cell}!ConwayCell@{Conway\-Cell}}
+\subsubsection[{Conway\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}Conway\-Cell\-::\-Conway\-Cell (
+\begin{DoxyParamCaption}
+\item[{bool}]{initial\-\_\-state, }
+\item[{char}]{s}
+\end{DoxyParamCaption}
+)}}\label{classConwayCell_a5a3c45dac7c4de6119fb9d0dfdfab710}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classConwayCell_a0fac73dc33d36053d1400430f1c980ce}{\index{Conway\-Cell@{Conway\-Cell}!clone@{clone}}
+\index{clone@{clone}!ConwayCell@{Conway\-Cell}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Conway\-Cell} $\ast$ Conway\-Cell\-::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classConwayCell_a0fac73dc33d36053d1400430f1c980ce}
+
+
+Implements \hyperlink{classAbstractCell_a1a95a7ea92b3503e2f042170b6320354}{Abstract\-Cell}.
+
+\hypertarget{classConwayCell_af5de668c6c40874a915da6335e030aa6}{\index{Conway\-Cell@{Conway\-Cell}!evolve@{evolve}}
+\index{evolve@{evolve}!ConwayCell@{Conway\-Cell}}
+\subsubsection[{evolve}]{\setlength{\rightskip}{0pt plus 5cm}void Conway\-Cell\-::evolve (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{{\bf Life}$<$ {\bf Conway\-Cell} $>$ \&}]{l}
+\end{DoxyParamCaption}
+)}}\label{classConwayCell_af5de668c6c40874a915da6335e030aa6}
+\hypertarget{classConwayCell_ad7204969de71ae212c67b5eafcd333f0}{\index{Conway\-Cell@{Conway\-Cell}!evolve@{evolve}}
+\index{evolve@{evolve}!ConwayCell@{Conway\-Cell}}
+\subsubsection[{evolve}]{\setlength{\rightskip}{0pt plus 5cm}void Conway\-Cell\-::evolve (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{{\bf Life}$<$ {\bf Cell} $>$ \&}]{l}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classConwayCell_ad7204969de71ae212c67b5eafcd333f0}
+
+
+Implements \hyperlink{classAbstractCell_a3400569dbc73b019698bead4aca5b186}{Abstract\-Cell}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classConwayCell_a30841fd52a1b9f1980a5e3345d7c6b9f}{\index{Conway\-Cell@{Conway\-Cell}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ConwayCell@{Conway\-Cell}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{, }
+\item[{const {\bf Conway\-Cell} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classConwayCell_a30841fd52a1b9f1980a5e3345d7c6b9f}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Life_8h}{Life.\-h}\item 
+\hyperlink{Life_8c_09_09}{Life.\-c++}\end{DoxyCompactItemize}

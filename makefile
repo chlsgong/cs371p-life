@@ -1,10 +1,10 @@
 FILES :=                              \
     .travis.yml                       \
-#    collatz-tests/EID-RunCollatz.in   \
-#    collatz-tests/EID-RunCollatz.out  \
-#    collatz-tests/EID-TestCollatz.c++ \
-#    collatz-tests/EID-TestCollatz.out \
-#    Life.pdf						 \
+    life-tests/hcg359-RunLife.in   \
+    life-tests/hcg359-RunLife.out  \
+    life-tests/hcg359-TestLife.c++ \
+    life-tests/hcg359-TestLife.out \
+    Life.pdf						 \
     Life.c++                         \
     Life.h                           \
     Life.log                         \

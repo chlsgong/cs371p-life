@@ -74,6 +74,7 @@ void ConwayCell::evolve(int index, Life<Cell>& l) {
 		symbol = '.';
 }
 ostream& operator << (ostream& os, const ConwayCell& cc) {
+	
 	os << cc.symbol;
 	return os;
 }

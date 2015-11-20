@@ -1,0 +1,107 @@
+commit efcb0f9e47dad629289718509046457f67d13c5a
+Author: joshuagutierrez <joshuagutierrez@utexas.edu>
+Date:   Thu Nov 19 19:54:03 2015 -0600
+
+    53 unit tests
+
+commit dc69c73b67cb9b2876451a1f629a7336746bc34c
+Author: joshuagutierrez <joshuagutierrez@utexas.edu>
+Date:   Thu Nov 19 17:25:59 2015 -0600
+
+    remove nfs
+
+commit 5688e99e44321e1edbf499701bc40aa414fd569f
+Author: joshuagutierrez <joshuagutierrez@utexas.edu>
+Date:   Thu Nov 19 17:24:38 2015 -0600
+
+    testing nfs
+
+commit 914bb4729949fd8da03a691423be8f96fce86bf0
+Author: joshuagutierrez <joshuagutierrez@utexas.edu>
+Date:   Thu Nov 19 17:20:59 2015 -0600
+
+    remove one nfs
+
+commit caf9580dc332133f7cbdbf1cfd733f36824f86a9
+Author: joshuagutierrez <joshuagutierrez@utexas.edu>
+Date:   Thu Nov 19 17:19:46 2015 -0600
+
+    adding UML and some unit tests
+
+commit 3f7a9006563b99106f4960211bcfdc5d0e69af41
+Author: Charles Gong <chlsgong@gmail.com>
+Date:   Thu Nov 19 01:13:53 2015 -0600
+
+    added acceptance tests
+
+commit 445c54823a42b65e66ace1e0e2191708d3bd14b5
+Author: Charles Gong <chlsgong@gmail.com>
+Date:   Thu Nov 19 00:30:30 2015 -0600
+
+    working code
+
+commit b086794e4087c161d9d83522f35e44232e7b757d
+Author: Haoyu Gong <hcgong@cs.utexas.edu>
+Date:   Wed Nov 18 19:11:39 2015 -0600
+
+    started unit tests
+
+commit 2a3d02cac6e3d8a14ab238b044953a5f51d32aa1
+Author: Charles Gong <chlsgong@gmail.com>
+Date:   Wed Nov 18 15:26:16 2015 -0600
+
+    correct output on given RunLife input
+
+commit 69d9f5f1ff0ee0c8300605639bae0b54fbcce619
+Author: Haoyu Gong <hcgong@cs.utexas.edu>
+Date:   Tue Nov 17 18:11:46 2015 -0600
+
+    need to fix bugs!
+
+commit 63889e039e9e737956c810d3b6ec9e5d85b17707
+Author: Charles Gong <chlsgong@gmail.com>
+Date:   Tue Nov 17 15:11:14 2015 -0600
+
+    working code but not tested
+
+commit a2e22418ed54b7f9bdb7f90454f6b6b2759e3cbc
+Author: Charles Gong <chlsgong@gmail.com>
+Date:   Tue Nov 17 01:45:48 2015 -0600
+
+    fixed classes
+
+commit 604e40a482587b4ea1d27e32a23bb47b060e8463
+Author: joshuagutierrez <joshuagutierrez@utexas.edu>
+Date:   Fri Nov 13 16:51:23 2015 -0600
+
+    working on evolve
+
+commit ffcd9adaa5497223f11f720103d04edf82b215d4
+Author: joshuagutierrez <joshuagutierrez@utexas.edu>
+Date:   Fri Nov 13 16:27:15 2015 -0600
+
+    implementing methods. added iterator
+
+commit 3a2d370181244eaf57f61d0762e261e6c6998237
+Author: Haoyu Gong <hcgong@cs.utexas.edu>
+Date:   Thu Nov 12 16:56:47 2015 -0600
+
+    wrote Life constructor and began classes close #2
+
+commit 551cc6cfac632190f09760f6d555f1a0c479c1c7
+Author: Charles Gong <chlsgong@gmail.com>
+Date:   Thu Nov 12 14:39:21 2015 -0600
+
+    wrote read function
+
+commit 1ca05cd041869bfdfcfcfd1e32fa420eb959086c
+Author: Charles Gong <chlsgong@gmail.com>
+Date:   Tue Nov 10 17:59:05 2015 -0600
+
+    initial commit
+
+commit 8dddaf7f246443a39f7c6f571652150f9fb7d5e1
+Author: chlsgong <chlsgong@gmail.com>
+Date:   Tue Nov 10 17:40:17 2015 -0600
+
+    Initial commit

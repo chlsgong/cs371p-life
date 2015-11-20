@@ -1,0 +1,312 @@
+==7213== Memcheck, a memory error detector
+==7213== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==7213== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==7213== Command: ./TestLife
+==7213== 
+Running main() from gtest_main.cc
+[==========] Running 125 tests from 8 test cases.
+[----------] Global test environment set-up.
+[----------] 9 tests from AbstractCellFixture
+[ RUN      ] AbstractCellFixture.abstract_cell_canMutate_1
+[       OK ] AbstractCellFixture.abstract_cell_canMutate_1 (8 ms)
+[ RUN      ] AbstractCellFixture.abstract_cell_canMutate_2
+[       OK ] AbstractCellFixture.abstract_cell_canMutate_2 (18 ms)
+[ RUN      ] AbstractCellFixture.abstract_cell_canMutate_3
+[       OK ] AbstractCellFixture.abstract_cell_canMutate_3 (4 ms)
+[ RUN      ] AbstractCellFixture.abstract_cell_changeState_1
+[       OK ] AbstractCellFixture.abstract_cell_changeState_1 (3 ms)
+[ RUN      ] AbstractCellFixture.abstract_cell_changeState_2
+[       OK ] AbstractCellFixture.abstract_cell_changeState_2 (2 ms)
+[ RUN      ] AbstractCellFixture.abstract_cell_changeState_3
+[       OK ] AbstractCellFixture.abstract_cell_changeState_3 (2 ms)
+[ RUN      ] AbstractCellFixture.abstract_cell_isAlive_1
+[       OK ] AbstractCellFixture.abstract_cell_isAlive_1 (2 ms)
+[ RUN      ] AbstractCellFixture.abstract_cell_isAlive_2
+[       OK ] AbstractCellFixture.abstract_cell_isAlive_2 (2 ms)
+[ RUN      ] AbstractCellFixture.abstract_cell_isAlive_3
+[       OK ] AbstractCellFixture.abstract_cell_isAlive_3 (2 ms)
+[----------] 9 tests from AbstractCellFixture (49 ms total)
+
+[----------] 15 tests from ConwayCellFixture
+[ RUN      ] ConwayCellFixture.conway_cell_default_constructor_1
+[       OK ] ConwayCellFixture.conway_cell_default_constructor_1 (6 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_default_constructor_2
+[       OK ] ConwayCellFixture.conway_cell_default_constructor_2 (1 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_default_constructor_3
+[       OK ] ConwayCellFixture.conway_cell_default_constructor_3 (1 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_custom_constructor_1
+[       OK ] ConwayCellFixture.conway_cell_custom_constructor_1 (3 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_custom_constructor_2
+[       OK ] ConwayCellFixture.conway_cell_custom_constructor_2 (3 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_custom_constructor_3
+[       OK ] ConwayCellFixture.conway_cell_custom_constructor_3 (3 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_clone_1
+[       OK ] ConwayCellFixture.conway_cell_clone_1 (3 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_clone_2
+[       OK ] ConwayCellFixture.conway_cell_clone_2 (3 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_clone_3
+[       OK ] ConwayCellFixture.conway_cell_clone_3 (2 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_evolve_Life_Cell_1
+[       OK ] ConwayCellFixture.conway_cell_evolve_Life_Cell_1 (7 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_evolve_Life_Cell_2
+[       OK ] ConwayCellFixture.conway_cell_evolve_Life_Cell_2 (11 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_evolve_Life_Cell_3
+[       OK ] ConwayCellFixture.conway_cell_evolve_Life_Cell_3 (3 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_evolve_Life_ConwayCell_1
+[       OK ] ConwayCellFixture.conway_cell_evolve_Life_ConwayCell_1 (20 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_evolve_Life_ConwayCell_2
+[       OK ] ConwayCellFixture.conway_cell_evolve_Life_ConwayCell_2 (3 ms)
+[ RUN      ] ConwayCellFixture.conway_cell_evolve_Life_ConwayCell_3
+[       OK ] ConwayCellFixture.conway_cell_evolve_Life_ConwayCell_3 (3 ms)
+[----------] 15 tests from ConwayCellFixture (77 ms total)
+
+[----------] 15 tests from FredkinCellFixture
+[ RUN      ] FredkinCellFixture.fredkin_cell_default_constructor_1
+[       OK ] FredkinCellFixture.fredkin_cell_default_constructor_1 (3 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_default_constructor_2
+[       OK ] FredkinCellFixture.fredkin_cell_default_constructor_2 (2 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_default_constructor_3
+[       OK ] FredkinCellFixture.fredkin_cell_default_constructor_3 (2 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_custom_constructor_1
+[       OK ] FredkinCellFixture.fredkin_cell_custom_constructor_1 (3 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_custom_constructor_2
+[       OK ] FredkinCellFixture.fredkin_cell_custom_constructor_2 (1 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_custom_constructor_3
+[       OK ] FredkinCellFixture.fredkin_cell_custom_constructor_3 (1 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_clone_1
+[       OK ] FredkinCellFixture.fredkin_cell_clone_1 (2 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_clone_2
+[       OK ] FredkinCellFixture.fredkin_cell_clone_2 (3 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_clone_3
+[       OK ] FredkinCellFixture.fredkin_cell_clone_3 (2 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_evolve_Life_Cell_1
+[       OK ] FredkinCellFixture.fredkin_cell_evolve_Life_Cell_1 (4 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_evolve_Life_Cell_2
+[       OK ] FredkinCellFixture.fredkin_cell_evolve_Life_Cell_2 (3 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_evolve_Life_Cell_3
+[       OK ] FredkinCellFixture.fredkin_cell_evolve_Life_Cell_3 (3 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_evolve_Life_FredkinCell_1
+[       OK ] FredkinCellFixture.fredkin_cell_evolve_Life_FredkinCell_1 (20 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_evolve_Life_FredkinCell_2
+[       OK ] FredkinCellFixture.fredkin_cell_evolve_Life_FredkinCell_2 (4 ms)
+[ RUN      ] FredkinCellFixture.fredkin_cell_evolve_Life_FredkinCell_3
+[       OK ] FredkinCellFixture.fredkin_cell_evolve_Life_FredkinCell_3 (4 ms)
+[----------] 15 tests from FredkinCellFixture (61 ms total)
+
+[----------] 33 tests from CellFixture
+[ RUN      ] CellFixture.cell_default_constructor_1
+[       OK ] CellFixture.cell_default_constructor_1 (3 ms)
+[ RUN      ] CellFixture.cell_default_constructor_2
+[       OK ] CellFixture.cell_default_constructor_2 (2 ms)
+[ RUN      ] CellFixture.cell_default_constructor_3
+[       OK ] CellFixture.cell_default_constructor_3 (2 ms)
+[ RUN      ] CellFixture.cell_abstractCell_constructor_1
+[       OK ] CellFixture.cell_abstractCell_constructor_1 (2 ms)
+[ RUN      ] CellFixture.cell_abstractCell_constructor_2
+[       OK ] CellFixture.cell_abstractCell_constructor_2 (2 ms)
+[ RUN      ] CellFixture.cell_abstractCell_constructor_3
+[       OK ] CellFixture.cell_abstractCell_constructor_3 (3 ms)
+[ RUN      ] CellFixture.cell_abstractCell_constructor_4
+[       OK ] CellFixture.cell_abstractCell_constructor_4 (2 ms)
+[ RUN      ] CellFixture.cell_abstractCell_constructor_5
+[       OK ] CellFixture.cell_abstractCell_constructor_5 (2 ms)
+[ RUN      ] CellFixture.cell_abstractCell_constructor_6
+[       OK ] CellFixture.cell_abstractCell_constructor_6 (3 ms)
+[ RUN      ] CellFixture.cell_abstractCell_constructor_7
+[       OK ] CellFixture.cell_abstractCell_constructor_7 (2 ms)
+[ RUN      ] CellFixture.cell_abstractCell_constructor_8
+[       OK ] CellFixture.cell_abstractCell_constructor_8 (2 ms)
+[ RUN      ] CellFixture.cell_custom_constructor_1
+[       OK ] CellFixture.cell_custom_constructor_1 (3 ms)
+[ RUN      ] CellFixture.cell_custom_constructor_2
+[       OK ] CellFixture.cell_custom_constructor_2 (3 ms)
+[ RUN      ] CellFixture.cell_custom_constructor_3
+[       OK ] CellFixture.cell_custom_constructor_3 (3 ms)
+[ RUN      ] CellFixture.cell_custom_constructor_4
+[       OK ] CellFixture.cell_custom_constructor_4 (2 ms)
+[ RUN      ] CellFixture.cell_assignment_operator_1
+[       OK ] CellFixture.cell_assignment_operator_1 (3 ms)
+[ RUN      ] CellFixture.cell_assignment_operator_2
+[       OK ] CellFixture.cell_assignment_operator_2 (3 ms)
+[ RUN      ] CellFixture.cell_assignment_operator_3
+[       OK ] CellFixture.cell_assignment_operator_3 (3 ms)
+[ RUN      ] CellFixture.cell_assignment_operator_4
+[       OK ] CellFixture.cell_assignment_operator_4 (3 ms)
+[ RUN      ] CellFixture.cell_evolve_1
+[       OK ] CellFixture.cell_evolve_1 (3 ms)
+[ RUN      ] CellFixture.cell_evolve_2
+[       OK ] CellFixture.cell_evolve_2 (4 ms)
+[ RUN      ] CellFixture.cell_evolve_3
+[       OK ] CellFixture.cell_evolve_3 (3 ms)
+[ RUN      ] CellFixture.cell_canMutate_1
+[       OK ] CellFixture.cell_canMutate_1 (3 ms)
+[ RUN      ] CellFixture.cell_canMutate_2
+[       OK ] CellFixture.cell_canMutate_2 (3 ms)
+[ RUN      ] CellFixture.cell_canMutate_3
+[       OK ] CellFixture.cell_canMutate_3 (3 ms)
+[ RUN      ] CellFixture.cell_changeState_1
+[       OK ] CellFixture.cell_changeState_1 (2 ms)
+[ RUN      ] CellFixture.cell_changeState_2
+[       OK ] CellFixture.cell_changeState_2 (2 ms)
+[ RUN      ] CellFixture.cell_changeState_3
+[       OK ] CellFixture.cell_changeState_3 (2 ms)
+[ RUN      ] CellFixture.cell_changeState_4
+[       OK ] CellFixture.cell_changeState_4 (3 ms)
+[ RUN      ] CellFixture.cell_isAlive_1
+[       OK ] CellFixture.cell_isAlive_1 (2 ms)
+[ RUN      ] CellFixture.cell_isAlive_2
+[       OK ] CellFixture.cell_isAlive_2 (2 ms)
+[ RUN      ] CellFixture.cell_isAlive_3
+[       OK ] CellFixture.cell_isAlive_3 (2 ms)
+[ RUN      ] CellFixture.cell_isAlive_4
+[       OK ] CellFixture.cell_isAlive_4 (2 ms)
+[----------] 33 tests from CellFixture (89 ms total)
+
+[----------] 15 tests from L_IteratorFixture
+[ RUN      ] L_IteratorFixture.constructor_1
+[       OK ] L_IteratorFixture.constructor_1 (2 ms)
+[ RUN      ] L_IteratorFixture.constructor_2
+[       OK ] L_IteratorFixture.constructor_2 (1 ms)
+[ RUN      ] L_IteratorFixture.constructor_3
+[       OK ] L_IteratorFixture.constructor_3 (2 ms)
+[ RUN      ] L_IteratorFixture.equal_operator_1
+[       OK ] L_IteratorFixture.equal_operator_1 (2 ms)
+[ RUN      ] L_IteratorFixture.equal_operator_2
+[       OK ] L_IteratorFixture.equal_operator_2 (3 ms)
+[ RUN      ] L_IteratorFixture.equal_operator_3
+[       OK ] L_IteratorFixture.equal_operator_3 (2 ms)
+[ RUN      ] L_IteratorFixture.equal_operator_4
+[       OK ] L_IteratorFixture.equal_operator_4 (2 ms)
+[ RUN      ] L_IteratorFixture.not_equal_operator_1
+[       OK ] L_IteratorFixture.not_equal_operator_1 (3 ms)
+[ RUN      ] L_IteratorFixture.not_equal_operator_2
+[       OK ] L_IteratorFixture.not_equal_operator_2 (2 ms)
+[ RUN      ] L_IteratorFixture.not_equal_operator_3
+[       OK ] L_IteratorFixture.not_equal_operator_3 (2 ms)
+[ RUN      ] L_IteratorFixture.not_equal_operator_4
+[       OK ] L_IteratorFixture.not_equal_operator_4 (2 ms)
+[ RUN      ] L_IteratorFixture.dereference_operator_1
+[       OK ] L_IteratorFixture.dereference_operator_1 (2 ms)
+[ RUN      ] L_IteratorFixture.dereference_operator_2
+[       OK ] L_IteratorFixture.dereference_operator_2 (3 ms)
+[ RUN      ] L_IteratorFixture.pre_increment
+[       OK ] L_IteratorFixture.pre_increment (2 ms)
+[ RUN      ] L_IteratorFixture.post_increment
+[       OK ] L_IteratorFixture.post_increment (2 ms)
+[----------] 15 tests from L_IteratorFixture (33 ms total)
+
+[----------] 23 tests from LifeFixture
+[ RUN      ] LifeFixture.Life_default_constructor_1
+[       OK ] LifeFixture.Life_default_constructor_1 (3 ms)
+[ RUN      ] LifeFixture.Life_default_constructor_2
+[       OK ] LifeFixture.Life_default_constructor_2 (3 ms)
+[ RUN      ] LifeFixture.Life_default_constructor_3
+[       OK ] LifeFixture.Life_default_constructor_3 (4 ms)
+[ RUN      ] LifeFixture.Life_runLife_1
+[       OK ] LifeFixture.Life_runLife_1 (25 ms)
+[ RUN      ] LifeFixture.Life_runLife_2
+[       OK ] LifeFixture.Life_runLife_2 (5 ms)
+[ RUN      ] LifeFixture.Life_runLife_3
+[       OK ] LifeFixture.Life_runLife_3 (6 ms)
+[ RUN      ] LifeFixture.Life_runLife_4
+[       OK ] LifeFixture.Life_runLife_4 (5 ms)
+[ RUN      ] LifeFixture.Life_runLife_5
+[       OK ] LifeFixture.Life_runLife_5 (11 ms)
+[ RUN      ] LifeFixture.Life_runLife_6
+[       OK ] LifeFixture.Life_runLife_6 (5 ms)
+[ RUN      ] LifeFixture.Life_runLife_7
+[       OK ] LifeFixture.Life_runLife_7 (10 ms)
+[ RUN      ] LifeFixture.Life_runLife_8
+[       OK ] LifeFixture.Life_runLife_8 (5 ms)
+[ RUN      ] LifeFixture.Life_inspectNeighbors_1
+[       OK ] LifeFixture.Life_inspectNeighbors_1 (3 ms)
+[ RUN      ] LifeFixture.Life_inspectNeighbors_2
+[       OK ] LifeFixture.Life_inspectNeighbors_2 (4 ms)
+[ RUN      ] LifeFixture.Life_inspectNeighbors_3
+[       OK ] LifeFixture.Life_inspectNeighbors_3 (3 ms)
+[ RUN      ] LifeFixture.Life_at_1
+[       OK ] LifeFixture.Life_at_1 (14 ms)
+[ RUN      ] LifeFixture.Life_at_2
+[       OK ] LifeFixture.Life_at_2 (3 ms)
+[ RUN      ] LifeFixture.Life_at_3
+[       OK ] LifeFixture.Life_at_3 (4 ms)
+[ RUN      ] LifeFixture.Life_begin_1
+[       OK ] LifeFixture.Life_begin_1 (3 ms)
+[ RUN      ] LifeFixture.Life_begin_2
+[       OK ] LifeFixture.Life_begin_2 (4 ms)
+[ RUN      ] LifeFixture.Life_begin_3
+[       OK ] LifeFixture.Life_begin_3 (3 ms)
+[ RUN      ] LifeFixture.Life_end_1
+[       OK ] LifeFixture.Life_end_1 (3 ms)
+[ RUN      ] LifeFixture.Life_end_2
+[       OK ] LifeFixture.Life_end_2 (3 ms)
+[ RUN      ] LifeFixture.Life_end_3
+[       OK ] LifeFixture.Life_end_3 (3 ms)
+[----------] 23 tests from LifeFixture (134 ms total)
+
+[----------] 6 tests from Life
+[ RUN      ] Life.Life_custom_constructor_1
+[       OK ] Life.Life_custom_constructor_1 (4 ms)
+[ RUN      ] Life.Life_custom_constructor_2
+[       OK ] Life.Life_custom_constructor_2 (3 ms)
+[ RUN      ] Life.Life_custom_constructor_3
+[       OK ] Life.Life_custom_constructor_3 (3 ms)
+[ RUN      ] Life.Life_custom_constructor_4
+[       OK ] Life.Life_custom_constructor_4 (4 ms)
+[ RUN      ] Life.Life_custom_constructor_5
+[       OK ] Life.Life_custom_constructor_5 (3 ms)
+[ RUN      ] Life.Life_custom_constructor_6
+[       OK ] Life.Life_custom_constructor_6 (3 ms)
+[----------] 6 tests from Life (21 ms total)
+
+[----------] 9 tests from OperatorFixture
+[ RUN      ] OperatorFixture.output_operator_Cell_1
+[       OK ] OperatorFixture.output_operator_Cell_1 (3 ms)
+[ RUN      ] OperatorFixture.output_operator_Cell_2
+[       OK ] OperatorFixture.output_operator_Cell_2 (2 ms)
+[ RUN      ] OperatorFixture.output_operator_Cell_3
+[       OK ] OperatorFixture.output_operator_Cell_3 (2 ms)
+[ RUN      ] OperatorFixture.output_operator_ConwayCell_1
+[       OK ] OperatorFixture.output_operator_ConwayCell_1 (2 ms)
+[ RUN      ] OperatorFixture.output_operator_ConwayCell_2
+[       OK ] OperatorFixture.output_operator_ConwayCell_2 (2 ms)
+[ RUN      ] OperatorFixture.output_operator_ConwayCell_3
+[       OK ] OperatorFixture.output_operator_ConwayCell_3 (2 ms)
+[ RUN      ] OperatorFixture.output_operator_FredkinCell_1
+[       OK ] OperatorFixture.output_operator_FredkinCell_1 (2 ms)
+[ RUN      ] OperatorFixture.output_operator_FredkinCell_2
+[       OK ] OperatorFixture.output_operator_FredkinCell_2 (3 ms)
+[ RUN      ] OperatorFixture.output_operator_FredkinCell_3
+[       OK ] OperatorFixture.output_operator_FredkinCell_3 (2 ms)
+[----------] 9 tests from OperatorFixture (22 ms total)
+
+[----------] Global test environment tear-down
+[==========] 125 tests from 8 test cases ran. (517 ms total)
+[  PASSED  ] 125 tests.
+==7213== 
+==7213== HEAP SUMMARY:
+==7213==     in use at exit: 75,568 bytes in 4,723 blocks
+==7213==   total heap usage: 7,390 allocs, 2,667 frees, 445,033 bytes allocated
+==7213== 
+==7213== LEAK SUMMARY:
+==7213==    definitely lost: 75,568 bytes in 4,723 blocks
+==7213==    indirectly lost: 0 bytes in 0 blocks
+==7213==      possibly lost: 0 bytes in 0 blocks
+==7213==    still reachable: 0 bytes in 0 blocks
+==7213==         suppressed: 0 bytes in 0 blocks
+==7213== Rerun with --leak-check=full to see details of leaked memory
+==7213== 
+==7213== For counts of detected and suppressed errors, rerun with: -v
+==7213== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+File 'Life.c++'
+Lines executed:55.28% of 161
+Branches executed:13.33% of 210
+Taken at least once:8.57% of 210
+Calls executed:27.34% of 139
+Creating 'Life.c++.gcov'
+File 'TestLife.c++'
+Lines executed:100.00% of 566
+Branches executed:67.21% of 3342
+Taken at least once:33.69% of 3342
+Calls executed:56.80% of 3859
+Creating 'TestLife.c++.gcov'

@@ -11,10 +11,10 @@ class Cell;
 
 class AbstractCell {
 	protected:
-		bool current_state; // true = alive, false = dead
-		bool next_state;
-		char symbol;
-		int age;
+		bool current_state = false; // true = alive, false = dead
+		bool next_state = false;
+		char symbol = ' ';
+		int age = 0;
 
 	public:
 		virtual ~AbstractCell() {}
@@ -37,7 +37,7 @@ class AbstractCell {
 			return pop_flag;
 		}
 		virtual int isAlive(int count) {
-			if(current_state)
+			if(current_state)		
 				return ++count;
 			return count;
 		}
@@ -131,7 +131,7 @@ class Life {
 			}
 			else if(std::is_same<ConwayCell, T>::value) {
 				for(int i = 0; i < size; i++) {
-					T cell = new ConwayCell(false, '-');
+					T cell = new ConwayCell(false, '.');
 					grid.push_back(cell);
 				}
 				population = 0;
