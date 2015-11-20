@@ -19,8 +19,22 @@ using namespace std;
 
 
 
-TEST(AbstractCellFixture, abstract_cell_canMutate) {
+TEST(AbstractCellFixture, abstract_cell_canMutate_1) {
 	AbstractCell *c = new ConwayCell();
+	ASSERT_FALSE(c->canMutate());
+}
+
+TEST(AbstractCellFixture, abstract_cell_canMutate_2) {
+	AbstractCell *c = new FredkinCell(true, '0');
+	Life<Cell> l;
+
+	ASSERT_FALSE(c->canMutate());
+}
+
+TEST(AbstractCellFixture, abstract_cell_canMutate_3) {
+	AbstractCell *c = new FredkinCell(true, '0');
+	Life<Cell> l;
+
 	ASSERT_FALSE(c->canMutate());
 }
 
@@ -234,9 +248,172 @@ TEST(L_IteratorFixture, post_increment) {
 	ASSERT_EQ(x, 4);
 }
 
+// ----------------
+// Life Constructor 
+// ----------------
+
+TEST(LifeFixture, Life_default_constructor_1) {
+	ASSERT_NO_THROW(Life<Cell> l());
+}
+
+TEST(LifeFixture, Life_default_constructor_2) {
+	ASSERT_NO_THROW(Life<ConwayCell> l());
+}
+
+TEST(LifeFixture, Life_default_constructor_3) {
+	ASSERT_NO_THROW(Life<FredkinCell> l());
+}
+
+
+
+// TEST(Life, Life_custom_constructor_1) {
+// 	ASSERT_NO_THROW(Life<Cell> l());
+// }
+
+// TEST(Life, Life_custom_constructor_2) {
+// 	ASSERT_NO_THROW(Life<ConwayCell> l());
+// }
+
+// TEST(Life, Life_custom_constructor_3) {
+// 	ASSERT_NO_THROW(Life<FredkinCell> l());
+// }
+
+	
+
+
+TEST(LifeFixture, Life_runLife_1) {
+
+}
+
+TEST(LifeFixture, Life_inspectNeighbors_1) {
+
+}
+
+TEST(LifeFixture, Life_at_1) {
+	vector<char> v(12);
+	for (int i = 0; i < 12; ++i) {
+		v.push_back('.');
+	}
+	Life<ConwayCell> l(4,4,v);
+	ASSERT_EQ(l.at(9).isAlive(0), 1);
+}
+
+TEST(LifeFixture, Life_at_2) {
+	vector<char> v(12);
+	for (int i = 0; i < 12; ++i) {
+		v.push_back('-');
+	}
+	Life<FredkinCell> l(4,4,v);
+	ASSERT_EQ(l.at(9).isAlive(0), 1);
+}
+
+TEST(LifeFixture, Life_at_3) {
+	vector<char> v(12);
+	for (int i = 0; i < 12; ++i) {
+		v.push_back('-');
+	}
+	Life<Cell> l(4,4,v);
+	ASSERT_EQ(l.at(9).isAlive(0), 1);
+}
+
+// TEST(LifeFixture, Life_begin_1) {
+	
+// 	Life<ConwayCell> l;
+// 	auto b = l.begin();
+// 	ASSERT_EQ(0, (*b).isAlive(0));
+// }
+
+TEST(LifeFixture, Life_end_1) {
+
+}
+
+
+TEST(Functions, enactLife_1) {
+
+}
+
+
+
+
 
 
 
 //TEST ALL THE FRIEND FUNCTION OPERATOR <<
+
+TEST(OperatorFixture, output_operator_Cell_1) {
+	Cell c;
+	ostringstream out;
+	out << c;
+	ASSERT_EQ(out.str(), "-");
+}
+
+TEST(OperatorFixture, output_operator_Cell_2) {
+	Cell c(true, '0');
+	ostringstream out;
+	out << c;
+	ASSERT_EQ(out.str(), "0");
+}
+
+TEST(OperatorFixture, output_operator_Cell_3) {
+	Cell c(false, '-');
+	ostringstream out;
+	out << c;
+	ASSERT_EQ(out.str(), "-");
+}
+
+TEST(OperatorFixture, output_operator_ConwayCell_1) {
+	ConwayCell c;
+	ostringstream out;
+	out << c;
+	ASSERT_EQ(out.str(), ".");
+}
+
+TEST(OperatorFixture, output_operator_ConwayCell_2) {
+	ConwayCell c(true, '*');
+	ostringstream out;
+	out << c;
+	ASSERT_EQ(out.str(), "*");
+}
+
+TEST(OperatorFixture, output_operator_ConwayCell_3) {
+	ConwayCell c(false, '.');
+	ostringstream out;
+	out << c;
+	ASSERT_EQ(out.str(), ".");
+}
+
+TEST(OperatorFixture, output_operator_FredkinCell_1) {
+	FredkinCell c;
+	ostringstream out;
+	out << c;
+	ASSERT_EQ(out.str(), "-");
+}
+
+TEST(OperatorFixture, output_operator_FredkinCell_2) {
+	FredkinCell c(true, '0');
+	ostringstream out;
+	out << c;
+	ASSERT_EQ(out.str(), "0");
+}
+
+TEST(OperatorFixture, output_operator_FredkinCell_3) {
+	FredkinCell c(false, '-');
+	ostringstream out;
+	out << c;
+	ASSERT_EQ(out.str(), "-");
+}
+// TEST(OperatorFixture, output_operator_Life_1) {
+// 	string s = "Population = 12.\n\0\\0\\0\\0\n\\0\\0\\0\\0\n\\0\\0\\0\\0\n";
+// 	vector<char> v(12);
+// 	for (int i = 0; i < 12; ++i) {
+// 		v.push_back('0');
+// 	}
+// 	Life<ConwayCell> l(3,4,v);
+
+// 	ostringstream out;
+// 	out << l;
+// 	ASSERT_EQ(s, out.str());
+// }
+
 
 // g++ -fprofile-arcs -ftest-coverage -pedantic -std=c++11 -Wall Life.c++ TestLife.c++ -o TestLife -lgtest -lgtest_main -lpthread
